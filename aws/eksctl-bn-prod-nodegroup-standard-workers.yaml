@@ -89,7 +89,7 @@ Resources:
       LaunchTemplateData:
         IamInstanceProfile:
           Arn: !GetAtt NodeInstanceProfile.Arn
-        ImageId: ami-082bb518441d3954c
+        ImageId: ami-0c35e3b980349938e
         InstanceType: t2.micro
         NetworkInterfaces:
           - AssociatePublicIpAddress: true
