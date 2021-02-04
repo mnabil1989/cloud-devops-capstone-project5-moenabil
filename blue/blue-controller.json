@@ -1,37 +1,33 @@
 {
-   "kind":"ReplicationController",
-   "apiVersion":"v1",
-   "metadata":{
-      "name":"blue",
-      "labels":{
-         "app":"blue"
-      }
-   },
-   "spec":{
-      "replicas":1,
-      "selector":{
-         "app":"blue"
-      },
-      "template":{
-         "metadata":{
-            "labels":{
-               "app":"blue"
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "blue",
+        "labels": {
+            "app": "blue"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "app": "blue"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "app": "blue"
+                }
+            },
+            "spec": {
+                "containers": [{
+                    "name": "blue",
+                    "image": "moenabil/capstone-blue",
+                    "ports": [{
+                        "name": "http-server",
+                        "containerPort": 80
+                    }]
+                }]
             }
-         },
-         "spec":{
-            "containers":[
-               {
-                  "name":"blue",
-                  "image":"bnair75/capstone-blue",
-                  "ports":[
-                     {
-                        "name":"http-server",
-                        "containerPort":80
-                     }
-                  ]
-               }
-            ]
-         }
-      }
-   }
+        }
+    }
 }
