@@ -12,4 +12,4 @@ docker image ls
 
 # Step 3: 
 # Run flask app
-docker run -d -p 8000:80 moenabil/testgreenimage
+docker run -d -p 8001:80 moenabil/testgreenimage
