@@ -1,6 +1,6 @@
 node {
-    def registry1 = 'moenabil/capstone-blue'
-    def registry2 = 'moenabil/capstone-green'
+    def registry1 = 'moenabil/testblueimage'
+    def registry2 = 'moenabil/testgreenimage'
     stage('Checking out git repo') {
       echo 'Checkout...'
       checkout scm
