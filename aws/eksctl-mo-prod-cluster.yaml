@@ -13,7 +13,7 @@ Resources:
   ControlPlane:
     Type: 'AWS::EKS::Cluster'
     Properties:
-      Name: bn-prod
+      Name: mo-prod
       ResourcesVpcConfig:
         SecurityGroupIds:
           - !Ref ControlPlaneSecurityGroup
@@ -25,7 +25,7 @@ Resources:
           - !Ref SubnetPrivateUSEAST2A
           - !Ref SubnetPrivateUSEAST2B
       RoleArn: !GetAtt ServiceRole.Arn
-      Version: '1.14'
+      Version: '1.18'
   ControlPlaneSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
@@ -189,7 +189,7 @@ Resources:
   SubnetPrivateUSEAST2A:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      AvailabilityZone: us-west-2a
+      AvailabilityZone: us-east-2a
       CidrBlock: 192.168.128.0/19
       Tags:
         - Key: kubernetes.io/role/internal-elb
@@ -200,7 +200,7 @@ Resources:
   SubnetPrivateUSEAST2B:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      AvailabilityZone: us-west-2b
+      AvailabilityZone: us-east-2b
       CidrBlock: 192.168.160.0/19
       Tags:
         - Key: kubernetes.io/role/internal-elb
@@ -211,7 +211,7 @@ Resources:
   SubnetPrivateUSEAST2C:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      AvailabilityZone: us-west-2c
+      AvailabilityZone: us-east-2c
       CidrBlock: 192.168.96.0/19
       Tags:
         - Key: kubernetes.io/role/internal-elb
@@ -222,7 +222,7 @@ Resources:
   SubnetPublicUSEAST2A:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      AvailabilityZone: us-west-2a
+      AvailabilityZone: us-east-2a
       CidrBlock: 192.168.32.0/19
       Tags:
         - Key: kubernetes.io/role/elb
@@ -233,7 +233,7 @@ Resources:
   SubnetPublicUSEAST2B:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      AvailabilityZone: us-west-2b
+      AvailabilityZone: us-east-2b
       CidrBlock: 192.168.64.0/19
       Tags:
         - Key: kubernetes.io/role/elb
@@ -244,7 +244,7 @@ Resources:
   SubnetPublicUSEAST2C:
     Type: 'AWS::EC2::Subnet'
     Properties:
-      AvailabilityZone: us-west-2c
+      AvailabilityZone: us-east-2c
       CidrBlock: 192.168.0.0/19
       Tags:
         - Key: kubernetes.io/role/elb
