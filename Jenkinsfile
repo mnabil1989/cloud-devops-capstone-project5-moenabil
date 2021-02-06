@@ -37,7 +37,7 @@ node {
     stage('Deploying to AWS EKS') {
       echo 'Deploying to AWS EKS...'
       dir ('./') {
-        withAWS(credentials: 'demo-ecr-credentials', region: 'us-west-2') {
+        withAWS(credentials: 'dem-ecr-credentials', region: 'us-west-2') {
             sh "aws eks --region us-west-2 update-kubeconfig --name mo-prod"
             sh "kubectl apply -f  blue/blue-controller.json"
             sh "kubectl apply -f  green/green-controller.json"
