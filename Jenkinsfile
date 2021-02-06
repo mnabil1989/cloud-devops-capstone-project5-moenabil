@@ -39,8 +39,7 @@ node {
       dir ('./') {
         withAWS(credentials: 'dem-ecr-credentials', region: 'us-west-2') {
             sh "aws eks --region us-west-2 update-kubeconfig --name mo-prod"
-	    sh "cd ../apstone-project5-moenabil_master"
-            sh "kubectl apply -f  blue/blue-controller.json"
+            sh "cd /var/lib/jenkins/workspace/apstone-project5-moenabil_master && kubectl apply -f  blue/blue-controller.json"
             sh "kubectl apply -f  green/green-controller.json"
             sh "kubectl apply -f  ./blue-green-service.json"
             sh "kubectl get nodes"
