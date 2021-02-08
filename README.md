@@ -29,19 +29,26 @@ Add AWS Credentials to Jenkins https://medium.com/faun/ci-cd-pipeline-with-jenki
 
 ensure EKS is running 
 
+#cd blue
 #kubectl apply -f ./blue-controller.json (create replication controller for blue)
-
+#cd green
 #kubectl apply -f ./green-controller.json (create replication controller for green)
 
 #kubectl apply -f ./blue-green-service.json (create the service)
 
 #kubectl get svc
 
+so run at this link  http://a5371f11d1f3c4a3bb4770034c50ed53-204099091.us-west-2.elb.amazonaws.com:8000/
+
+If we want to redirect to green app 
+we should edit in blue-green-service.json and change the selector to green 
+
 Update the service to redirect to green by changing the selector to app=green
 
 #kubectl apply -f ./blue-green-service.json (after making the above changes)
 
 #kubectl get svc (now the color of page should have changed)
+
 
 
 
