@@ -1,6 +1,6 @@
 node {
-    def registry1 = 'moenabil/capstone-blue'
-    def registry2 = 'moenabil/capstone-green'
+    def registry1 = 'moenabil/testblueimage'
+    def registry2 = 'moenabil/testgreenimage'
     stage('Checking out git repo') {
       echo 'Checkout...'
       checkout scm
@@ -37,11 +37,11 @@ node {
     stage('Deploying to AWS EKS') {
       echo 'Deploying to AWS EKS...'
       dir ('./') {
-        withAWS(credentials: 'aws.bnair', region: 'us-east-2') {
-            sh "aws eks --region us-east-2 update-kubeconfig --name bn-prod"
-            sh "kubectl apply -f blue/blue-controller.json"
-            sh "kubectl apply -f green/green-controller.json"
-            sh "kubectl apply -f ./blue-green-service.json"
+        withAWS(credentials: 'dem-ecr-credentials', region: 'us-west-2') {
+            sh "aws eks --region us-west-2 update-kubeconfig --name mo-prod"
+            sh "kubectl apply -f  blue/blue-controller.json"
+            sh "kubectl apply -f  green/green-controller.json"
+            sh "kubectl apply -f  ./blue-green-service.json"
             sh "kubectl get nodes"
             sh "kubectl get pods"
         }
